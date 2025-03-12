@@ -143,3 +143,4 @@ test('profile update with invalid email format fails', function () {
     $user->refresh();
     $this->assertNotSame('not-a-valid-email', $user->email);
 });
+// test
