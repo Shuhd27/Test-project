@@ -1,19 +1,16 @@
-<!-- <php
-
-test('example', function () {
-    expect(true)->toBeTrue();
-});
--->
 <?php
+
 use Tests\TestCase;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\Test;
+
 
 class ProductTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[Test]
     public function een_product_kan_worden_aangemaakt()
     {
         $product = Product::create([
@@ -24,14 +21,14 @@ class ProductTest extends TestCase
         $this->assertDatabaseHas('products', ['name' => 'Test Product']);
     }
 
-    /** @test */
+    #[Test]
     public function een_product_kan_worden_gelezen()
     {
         $product = Product::factory()->create();
         $this->assertNotNull(Product::find($product->id));
     }
 
-    /** @test */
+    #[Test]
     public function een_product_kan_worden_bijgewerkt()
     {
         $product = Product::factory()->create();
@@ -40,7 +37,7 @@ class ProductTest extends TestCase
         $this->assertDatabaseHas('products', ['id' => $product->id, 'price' => 19.99]);
     }
 
-    /** @test */
+    #[Test]
     public function een_product_kan_worden_verwijderd()
     {
         $product = Product::factory()->create();
